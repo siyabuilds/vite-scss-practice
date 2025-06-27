@@ -1,17 +1,49 @@
-$primary-color: #342E37;
-$secondary-color: #8D818C;
-$font-stack: 'Helvetica Neue', Arial, sans-serif;   
+$font-stack: 'Helvetica Neue', Arial, sans-serif;
+
+$light-theme: (
+  primary: #DFEFCA,
+  secondary: #8D818C,
+  text: #342E37,
+  background: #FFFFFF
+);
+
+$dark-theme: (
+  primary: #342E37,
+  secondary: #8D818C,
+  text: #DFEFCA,
+  background: #1A1A1A
+);
+
+@function theme($key, $theme: light) {
+  @if $theme == light {
+    @return map-get($light-theme, $key);
+  } @else if $theme == dark {
+    @return map-get($dark-theme, $key);
+  }
+}
+
+:root {
+  --primary: #{theme(primary, light)};
+  --background: #{theme(background, light)};
+  --text: #{theme(text, light)};
+}
+
+body[data-theme='dark'] {
+  --primary: #{theme(primary, dark)};
+  --background: #{theme(background, dark)};
+  --text: #{theme(text, dark)};
+}
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: $font-stack;
-  background-color: $secondary-color;
-  color: $primary-color;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 @mixin flex-center {
@@ -21,8 +53,8 @@ body {
 }
 
 header {
-  background-color: $primary-color;
-  color: white;
+  background-color: var(--primary);
+  color: var(--text);
   padding: 1.25rem;
   text-align: center;
   position: relative;
@@ -40,6 +72,7 @@ header {
     font-size: 2.5em;
     margin: 0;
   }
+
   p {
     font-size: 1.2em;
     margin-top: 0.625em;
@@ -51,8 +84,9 @@ header {
     cursor: pointer;
     font-size: 2em;
     transition: all 0.15s ease;
+
     &:hover {
-      color: lighten($primary-color, 20%);
+      color: color-mix(in srgb, var(--background), var(--primary) 10%);
     }
   }
 }
