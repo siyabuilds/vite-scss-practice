@@ -1,3 +1,4 @@
+@use 'sass:map';
 $font-stack: 'Helvetica Neue', Arial, sans-serif;
 
 $light-theme: (
@@ -16,9 +17,9 @@ $dark-theme: (
 
 @function theme($key, $theme: light) {
   @if $theme == light {
-    @return map-get($light-theme, $key);
+    @return map.get($light-theme, $key);
   } @else if $theme == dark {
-    @return map-get($dark-theme, $key);
+    @return map.get($dark-theme, $key);
   }
 }
 
