@@ -25,26 +25,30 @@ header {
   color: white;
   padding: 1.25rem;
   text-align: center;
-    @include flex-center;
+  position: relative;
+  @include flex-center;
+  justify-content: flex-start;
 
-    .text {
-        max-width: 37.5rem;
-        margin: 0 auto;
-    }
+  .text {
+    max-width: 37.5rem;
+    margin: 0;
+    text-align: left;
+    flex: 1 1 auto;
+  }
 
-    h1 {
-        font-size: 2.5em;
-        margin: 0;
-    }
-    p {
-        font-size: 1.2em;
-        margin-top: 0.625em;
-    }
+  h1 {
+    font-size: 2.5em;
+    margin: 0;
+  }
+  p {
+    font-size: 1.2em;
+    margin-top: 0.625em;
+  }
 
-    .user-icon {
-        position: absolute;
-        right: 1.25rem;
-        cursor: pointer;
-        font-size: 2em;
-    }
+  .user-icon {
+    position: absolute;
+    right: 1.25rem;
+    cursor: pointer;
+    font-size: 2em;
+  }
 }
