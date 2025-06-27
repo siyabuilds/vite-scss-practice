@@ -50,5 +50,9 @@ header {
     right: 1.25rem;
     cursor: pointer;
     font-size: 2em;
+    transition: all 0.3s ease;
+    &:hover {
+      color: lighten($primary-color, 20%);
+    }
   }
 }
