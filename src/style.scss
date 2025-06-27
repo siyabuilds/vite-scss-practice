@@ -2,8 +2,49 @@ $primary-color: #342E37;
 $secondary-color: #8D818C;
 $font-stack: 'Helvetica Neue', Arial, sans-serif;   
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
   font-family: $font-stack;
   background-color: $secondary-color;
   color: $primary-color;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  background-color: $primary-color;
+  color: white;
+  padding: 1.25rem;
+  text-align: center;
+    @include flex-center;
+
+    .text {
+        max-width: 37.5rem;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        margin: 0;
+    }
+    p {
+        font-size: 1.2em;
+        margin-top: 0.625em;
+    }
+
+    .user-icon {
+        position: absolute;
+        right: 1.25rem;
+        cursor: pointer;
+        font-size: 2em;
+    }
 }
